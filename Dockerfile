@@ -18,7 +18,8 @@ RUN yum -y install libmcrypt-devel
 RUN mkdir -p /tars/php-5.5.16
 # Build and install PHP
 COPY ["php-5.5.16", "/tars/php-5.5.16"]
-RUN cd /tars/php-5.5.16 && ./configure --prefix=/usr/local/php-5.5.16 --with-jpeg-dir=/usr/local/php-5.5.16/lib \
+RUN echo "Building PHP"
+RUN cd /tars/php-5.5.16 && ls && ./configure --prefix=/usr/local/php-5.5.16 --with-jpeg-dir=/usr/local/php-5.5.16/lib \
 	--enable-fpm --with-openssl --with-mcrypt --enable-bcmath --enable-calendar --enable-exif \
 	--with-curl --with-gd --with-xmlrpc --with-iconv --enable-exif --enable-ftp --enable-gd-native-ttf \
 	--enable-libxml --enable-sockets --enable-mbstring --enable-zip --with-zlib --enable-wddx --enable-mbregex --with-mysqli && \
